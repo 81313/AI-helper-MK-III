@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>功能選單範例網站</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="main">
+  
+  <!--導覽列-->
+  <nav class="navbar">
+    <ul class="nav-links">
+      <li><a href="#home-section" class="nav-link active">首頁</a></li>
+      <li><a href="#chat-section" class="nav-link">對話框</a></li>
+      <li><a href="#search-section" class="nav-link">課表查詢</a></li>
+      <li><a href="#team-section" class="nav-link">人員介紹</a></li>
+      <li><a href="#login-section" class="nav-link">登入</a></li>
+      <div class="color-palette-wrapper">
+    
+      <!--調色盤-->    
+      <button class="palette-toggle" aria-label="主題顏色">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+          <circle cx="12" cy="12" r="10" fill="#eee" stroke="#bbb" stroke-width="2"/>
+          <circle cx="8" cy="10" r="2" fill="#e74c3c"/>
+          <circle cx="16" cy="10" r="2" fill="#4f8cff"/>
+          <circle cx="9" cy="16" r="2" fill="#4caf50"/>
+          <circle cx="15" cy="16" r="2" fill="#ffe066"/>
+        </svg>
+      </button>
+      <div class="color-palette">
+        <button class="color-btn selected" style="background:red" data-color="red" title="紅"></button>
+        <button class="color-btn" style="background:orange" data-color="orange" title="橙"></button>
+        <!--<button class="color-btn" style="background:yellow" data-color="yellow" title="黃"></button>-->
+        <button class="color-btn" style="background:green" data-color="green" title="綠"></button>
+        <button class="color-btn" style="background:blue" data-color="blue" title="藍"></button>
+        <button class="color-btn" style="background:purple" data-color="purple" title="紫"></button>
+      </div>
+    </ul>
+  </nav>
+  
+  <div id="ip-block" class="ip-block" style="display:none;">
+    <div class="block-msg"></div>
+    <div class="ip-detail"></div>
+    <div class="block-detail"></div>
+  </div>
+
+  <main class="container">
+    <div class="ip-info">你的IP位置是：<span id="ip-address">載入中...</span></div>
+    <div id="ip-block" class="ip-block" style="display:none;"></div>
+
+    <section id="home-section" class="page-section active">
+      <!--虛擬IP位置顯示-->
+      <div class="welcome">你好，歡迎使用本系統~</div>
+      <section id="quick-links">
+        <h2>常用連結</h2>
+        <div class="links-center">
+          <a href="https://ecare.nfu.edu.tw" class="quick-link" target="_blank">
+            <img src="gallery/Ecare.jpg" alt="Ecare" width="255px" height="45px">
+            <div >
+              Ecare
+            </div>
+          </a>
+        </div>
+        
+        <div class="links-center">
+          <a href="https://identity.nfu.edu.tw/auth/realms/nfu/protocol/cas/login?service=https://ulearn.nfu.edu.tw/login" class="quick-link" target="_blank">
+            <img src="gallery/ulearn.png" alt="ulearn" width="221px" height="63px">
+            <div >
+              ulearn
+            </div>
+          </a>
+        </div>
+        
+        <div class="links-center">
+          <a href="https://www.nfu.edu.tw/zh" class="quick-link" target="_blank">
+            <img src="gallery/NFU.png" alt="NFU" width="195px" height="30px">
+            <div >
+              學校首頁
+            </div>
+          </a>
+        </div>
+        
+        <div class="links-center">
+          <a href="https://autoweb.nfu.edu.tw" class="quick-link" target="_blank">
+            <img src="gallery/auto.png" alt="auto" width="288px" height="33px">
+            <div >
+              自動化系首頁
+            </div>
+          </a>
+        </div>
+      </section>
+    </section>
+    
+    <!--對話框-->
+    <section id="chat-section" class="page-section">
+      <div class="chat-container">
+        <div id="chat-history" class="chat-history"></div>
+        <div class="input-group">
+          <input type="text" id="message-input" placeholder="請輸入訊息..." class="chat-input">
+          <div class="file-upload-group">
+            <button id="send-btn" class="interactive-btn">送出</button>
+            <label for="file-upload" class="upload-label">
+              <span class="upload-icon">📁</span>
+              <span>上傳檔案</span>
+              <input type="file" id="file-upload" accept=".docx,.csv" style="display:none;">
+            </label>
+          </div>
+          <p class="file-hint">檔案限制格式：word、csv</p>
+        </div>
+      </div>
+    </section>
+    <!--詢表單，學年期、教室與查詢按鈕同列-->
+    <section id="search-section" class="page-section">
+      <div id="search-container">
+        <h2>查詢教室課表</h2>
+        <form id="queryForm" aria-label="查詢教室課表表單">
+          <label for="year">學年/學期：</label>
+          <select id="year" name="year" aria-label="學年期">
+            {{ year_html|safe }}
+          </select>
+          <label for="room">教室：</label>
+          <select id="room" name="room" aria-label="教室">
+            {{ room_html|safe }}
+          </select>
+          <button type="submit" aria-label="開始查詢">查詢</button>
+        </form>
+        <!-- 查詢結果區域 -->
+        <div id="result"></div>
+      </div>
+      <!--loading 小視窗-->
+      <div id="loadingModal" role="alert" aria-live="assertive" aria-hidden="true">
+        <div class="modal-content">
+          <img src="{{ url_for('static', filename='loading1.gif') }}" alt="查詢中，請稍候" />
+          <span>查詢中...</span>
+        </div>
+      </div>
+    </section>
+    <!--人員介紹-->
+    <section id="team-section" class="page-section">
+      <div class="team-members">
+        <div class="member">
+          <img src="gallery/liu.jpg" alt="成員A">
+          <h3>劉宏泰</h3>
+          <p>負責項目：資料庫建置</p>
+        </div>
+        <div class="member">
+          <img src="gallery/NightMire.png" alt="成員B">
+          <h3>陳信安</h3>
+          <p>負責項目：資料庫建置</p>
+        </div>
+        <div class="member">
+          <img src="gallery/HSC.jpg" alt="成員C">
+          <h3>韓尚宸</h3>
+          <p>負責項目：網站架設</p>
+        </div>
+      </div>
+    </section>
+    <!--登入頁面-->
+    <section id="login-section" class="page-section">
+      <div class="welcome">登入功能尚未開放</div>
+    </section>
+  </main>
+  <!--暗/亮模式切換-->
+  <div class="theme-switch-wrapper">
+  <label class="theme-switch" for="checkbox">
+    <input type="checkbox" id="checkbox"/>
+    <span class="slider round">
+      <img src="gallery/sun-svgrepo-com.svg" id="theme-icon-sun" class="theme-icon sun">
+      <img src="gallery/moon-svgrepo-com.svg" id="theme-icon-moon" class="theme-icon moon">
+    </span>
+  </label>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
