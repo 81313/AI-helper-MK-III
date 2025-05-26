@@ -703,7 +703,6 @@ input:checked+.slider .theme-icon.moon {
     width: fit-content;
     user-select: none;
     font-family: Arial, sans-serif;
-    z-index: 9998;
     margin: 0.5rem auto;
 }
 
