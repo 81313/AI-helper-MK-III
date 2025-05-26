@@ -24,7 +24,7 @@ body.main {
 .container {
   width: 90%;
   max-width: 900px;
-  margin: 2rem auto;
+  margin: 0.5rem auto;
 }
 
 .navbar {
@@ -76,7 +76,6 @@ body.main {
 }
 
 #quick-links {
-  margin-top: 2rem;
   text-align: center;
 }
 
@@ -97,7 +96,7 @@ body.main {
   font-weight: 500;
   font-size: 1.07rem;
   transition: background 0.15s;
-  text-decoration:none;
+  text-decoration: none;
 }
 
 .quick-link:hover {
@@ -107,7 +106,6 @@ body.main {
 
 .welcome {
   text-align: center;
-  margin: 2rem 0 1rem 0;
   font-size: 1.2rem;
 }
 
@@ -204,7 +202,7 @@ body.main {
   background: #fff;
   padding: 2rem;
   border-radius: 10px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   text-align: center;
   max-width: 90%;
 }
@@ -332,7 +330,7 @@ body.main {
   animation: none;
   transition: opacity 0.4s;
   min-height: calc(100vh - 60px);
-  padding: 2rem 0;
+  
   position: relative;
   z-index: 1;
   scroll-margin-top: 60px;
@@ -351,26 +349,57 @@ body.main {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes fadeOut {
-  from { opacity: 1; }
-  to   { opacity: 0; }
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
 }
 
 @media (max-width: 768px) {
-  .container { width: 98%; }
-  .nav-links { gap: 1rem; }
-  .team-members { gap: 1rem; }
-  .member { width: 140px; }
-  .links-center { gap: 0.7rem; }
+  .container {
+    width: 98%;
+  }
+
+  .nav-links {
+    gap: 1rem;
+  }
+
+  .team-members {
+    gap: 1rem;
+  }
+
+  .member {
+    width: 140px;
+  }
+
+  .links-center {
+    gap: 0.7rem;
+  }
 }
 
 @media (max-width: 500px) {
-  .team-members { flex-direction: column; align-items: center; }
-  .member { width: 90vw; max-width: 260px; }
+  .team-members {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .member {
+    width: 90vw;
+    max-width: 260px;
+  }
 }
 
 /*課表查詢的CSS*/
@@ -388,7 +417,7 @@ body.search {
 #search-container {
   background: white;
   padding: 2em;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   display: flex;
   flex-direction: column;
@@ -414,7 +443,8 @@ label {
   align-items: center;
 }
 
-select, button {
+select,
+button {
   font-size: 1em;
   padding: 0.3em 0.6em;
   margin: 0;
@@ -441,15 +471,19 @@ button {
   display: none;
   position: fixed;
   z-index: 9999;
-  left: 0; top: 0; width: 100vw; height: 100vh;
-  background: rgba(0,0,0,0.3);
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.3);
 }
 
 #loadingModal .modal-content {
   width: 120px;
   height: 150px;
   position: absolute;
-  top: 50%; left: 50%;
+  top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
   background: white;
   border-radius: 10px;
@@ -478,7 +512,7 @@ button {
   width: 100%;
 }
 
-/* 調色盤樣式 */
+/* 調色盤CSS */
 .color-palette-wrapper {
   position: relative;
   display: flex;
@@ -531,14 +565,14 @@ button {
   outline: none;
   cursor: pointer;
   transition: transform 0.1s, box-shadow 0.1s, border-color 0.2s;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
   padding: 0;
   background-clip: padding-box;
 }
 
 .color-btn.selected {
   border: 3px solid #444;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
 }
 
 .color-btn:hover {
@@ -546,17 +580,17 @@ button {
 }
 
 /*亮暗切換*/
-body.light-mode{
+body.light-mode {
   background-color: rgb(214, 214, 214);
   color: black;
 }
 
-body.dark-mode{
+body.dark-mode {
   background-color: black;
   color: white;
 }
 
-.theme-switch-wrapper{
+.theme-switch-wrapper {
   position: fixed;
   left: 20px;
   bottom: 20px;
@@ -577,14 +611,14 @@ body.dark-mode{
 }
 
 
-.theme-switch{
+.theme-switch {
   position: relative;
   display: inline-block;
   width: 80px;
   height: 44px;
 }
 
-.theme-switch input{
+.theme-switch input {
   opacity: 0;
   width: 0;
   height: 0;
@@ -603,11 +637,11 @@ body.dark-mode{
   padding: 0 16px;
 }
 
-.slider:hover{
+.slider:hover {
   box-shadow: 0 0 20px rgb(214, 252, 0);
 }
 
-.slider:before{
+.slider:before {
   position: absolute;
   content: "";
   height: 36px;
@@ -620,15 +654,15 @@ body.dark-mode{
   background-size: cover;
 }
 
-input:checked + .slider{
+input:checked+.slider {
   background-color: #2c0b47;
 }
 
-input:checked + .slider:hover{
-  box-shadow:  0 0 20px rgb(255, 255, 255);
+input:checked+.slider:hover {
+  box-shadow: 0 0 20px rgb(255, 255, 255);
 }
 
-input:checked + .slider:before{
+input:checked+.slider:before {
   transform: translateX(36px);
   background-image: url('moon-svgrepo-com.svg');
   background-size: cover;
@@ -641,17 +675,181 @@ input:checked + .slider:before{
 }
 
 .theme-icon.moon {
-  right: 10px; 
+  right: 10px;
   opacity: 0;
   transform: translateY(-50%) rotate(-90deg) scale(0);
 }
 
-input:checked + .slider .theme-icon.sun {
+input:checked+.slider .theme-icon.sun {
   opacity: 0;
   transform: translateY(-50%) rotate(90deg) scale(0);
 }
 
-input:checked + .slider .theme-icon.moon {
+input:checked+.slider .theme-icon.moon {
   opacity: 1;
   transform: translateY(-50%) rotate(0deg) scale(1);
+}
+
+/*時鐘CSS*/
+
+/* 外層容器，垂直排列，星期在下方 */
+.clock-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: black;
+    padding: 1rem 1rem 0rem;
+    border-radius: 2rem;
+    width: fit-content;
+    user-select: none;
+    font-family: Arial, sans-serif;
+    z-index: 9998;
+    margin: 0.5rem auto;
+}
+
+/* 四個七段顯示器 */
+.clock {
+    display: flex;
+    gap: 1.8em;
+    font-size: 3px;
+    /* 控制大小 */
+}
+
+/* 單個七段顯示器 */
+.digit {
+    position: relative;
+    width: 8em;
+    height: 13.3em;
+}
+
+/* 七段基本樣式 */
+.segment {
+    position: absolute;
+    background: #333;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    clip-path: polygon(20% 0, 80% 0, 100% 100%, 0 100%);
+    border-radius: 0.4em;
+}
+
+/* 點亮 */
+.segment.active {
+    background: #ff4444;
+    box-shadow: 0 0 1em #ff4444;
+}
+
+/* 水平段位置 */
+.segment-a {
+    top: 0.7em;
+    left: 1.3em;
+    width: 5.3em;
+    height: 1.3em;
+}
+
+.segment-g {
+    top: 6.0em;
+    left: 1.3em;
+    width: 5.3em;
+    height: 1.3em;
+}
+
+.segment-d {
+    bottom: 0.7em;
+    left: 1.3em;
+    width: 5.3em;
+    height: 1.3em;
+}
+
+/* 垂直段位置 */
+.segment-b {
+    top: 1.3em;
+    left: 7.3em;
+    width: 1.3em;
+    height: 5.3em;
+    clip-path: polygon(0 20%, 100% 0, 100% 80%, 0 100%);
+    border-radius: 0.4em;
+}
+
+.segment-c {
+    bottom: 1.3em;
+    left: 7.3em;
+    width: 1.3em;
+    height: 5.3em;
+    clip-path: polygon(0 20%, 100% 0, 100% 80%, 0 100%);
+    border-radius: 0.4em;
+}
+
+.segment-e {
+    bottom: 1.3em;
+    left: 0;
+    width: 1.3em;
+    height: 5.3em;
+    clip-path: polygon(0 0, 100% 20%, 100% 100%, 0 80%);
+    border-radius: 0.4em;
+}
+
+.segment-f {
+    top: 1.3em;
+    left: 0;
+    width: 1.3em;
+    height: 5.3em;
+    clip-path: polygon(0 0, 100% 20%, 100% 100%, 0 80%);
+    border-radius: 0.4em;
+}
+
+/* 冒號 */
+.colon {
+    width: 1.3em;
+    height: 13.3em;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 3.3em;
+}
+
+.colon-dot {
+    width: 1.3em;
+    height: 1.3em;
+    background: #ff4444;
+    border-radius: 50%;
+    box-shadow: 0 0 1em #ff4444;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+/* 星期縮寫放在下方 */
+/* 
+.weekday：
+- font-size 與時鐘同基準，等比例縮放用 transform: scale()
+- transform-origin 設定縮放基準點避免位置錯亂
+- text-transform 強制大寫
+- letter-spacing 微調間距
+- 只顯示當天星期縮寫，不留空間
+*/
+.weekday {
+    margin-top: -0.5rem;
+    font-weight: 900;
+    color: #ff4444;
+    font-size: 2rem;
+    /* 基準字體大小 */
+    text-transform: uppercase;
+    transform-origin: center;
+    transform: scale(0.6);
+    /* 縮小60% */
+    letter-spacing: 0.12em;
+    user-select: none;
+    width: auto;
+    /* 不固定寬度，讓文字寬度隨內容自適應 */
+    text-align: center;
 }

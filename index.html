@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>功能選單範例網站</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body class="main">
-  
+
   <!--導覽列-->
   <nav class="navbar">
     <ul class="nav-links">
@@ -17,28 +19,28 @@
       <li><a href="#team-section" class="nav-link">人員介紹</a></li>
       <li><a href="#login-section" class="nav-link">登入</a></li>
       <div class="color-palette-wrapper">
-    
-      <!--調色盤-->    
-      <button class="palette-toggle" aria-label="主題顏色">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-          <circle cx="12" cy="12" r="10" fill="#eee" stroke="#bbb" stroke-width="2"/>
-          <circle cx="8" cy="10" r="2" fill="#e74c3c"/>
-          <circle cx="16" cy="10" r="2" fill="#4f8cff"/>
-          <circle cx="9" cy="16" r="2" fill="#4caf50"/>
-          <circle cx="15" cy="16" r="2" fill="#ffe066"/>
-        </svg>
-      </button>
-      <div class="color-palette">
-        <button class="color-btn selected" style="background:red" data-color="red" title="紅"></button>
-        <button class="color-btn" style="background:orange" data-color="orange" title="橙"></button>
-        <!--<button class="color-btn" style="background:yellow" data-color="yellow" title="黃"></button>-->
-        <button class="color-btn" style="background:green" data-color="green" title="綠"></button>
-        <button class="color-btn" style="background:blue" data-color="blue" title="藍"></button>
-        <button class="color-btn" style="background:purple" data-color="purple" title="紫"></button>
-      </div>
+
+        <!--調色盤-->
+        <button class="palette-toggle" aria-label="主題顏色">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="12" r="10" fill="#eee" stroke="#bbb" stroke-width="2" />
+            <circle cx="8" cy="10" r="2" fill="#e74c3c" />
+            <circle cx="16" cy="10" r="2" fill="#4f8cff" />
+            <circle cx="9" cy="16" r="2" fill="#4caf50" />
+            <circle cx="15" cy="16" r="2" fill="#ffe066" />
+          </svg>
+        </button>
+        <div class="color-palette">
+          <button class="color-btn selected" style="background:red" data-color="red" title="紅"></button>
+          <button class="color-btn" style="background:orange" data-color="orange" title="橙"></button>
+          <!--<button class="color-btn" style="background:yellow" data-color="yellow" title="黃"></button>-->
+          <button class="color-btn" style="background:green" data-color="green" title="綠"></button>
+          <button class="color-btn" style="background:blue" data-color="blue" title="藍"></button>
+          <button class="color-btn" style="background:purple" data-color="purple" title="紫"></button>
+        </div>
     </ul>
   </nav>
-  
+
   <div id="ip-block" class="ip-block" style="display:none;">
     <div class="block-msg"></div>
     <div class="ip-detail"></div>
@@ -46,7 +48,22 @@
   </div>
 
   <main class="container">
-    <div class="ip-info">你的IP位置是：<span id="ip-address">載入中...</span></div>
+    <div class="ip-info">你的IP位置是：<span id="ip-address">載入中...</span>
+    
+      <!--時間顯示-->
+    <div class="clock-container" role="region" aria-label="數位時鐘與星期顯示">
+      <div class="clock" aria-hidden="true">
+          <div class="digit" id="hour1"></div>
+          <div class="digit" id="hour2"></div>
+          <div class="colon" aria-hidden="true">
+            <div class="colon-dot"></div>
+            <div class="colon-dot"></div>
+          </div>
+          <div class="digit" id="min1"></div>
+          <div class="digit" id="min2"></div>
+        </div>
+      <div class="weekday" aria-live="polite" aria-atomic="true" aria-label="今天星期幾縮寫"></div>
+    </div>
     <div id="ip-block" class="ip-block" style="display:none;"></div>
 
     <section id="home-section" class="page-section active">
@@ -57,41 +74,42 @@
         <div class="links-center">
           <a href="https://ecare.nfu.edu.tw" class="quick-link" target="_blank">
             <img src="gallery/Ecare.jpg" alt="Ecare" width="255px" height="45px">
-            <div >
+            <div>
               Ecare
             </div>
           </a>
         </div>
-        
+
         <div class="links-center">
-          <a href="https://identity.nfu.edu.tw/auth/realms/nfu/protocol/cas/login?service=https://ulearn.nfu.edu.tw/login" class="quick-link" target="_blank">
+          <a href="https://identity.nfu.edu.tw/auth/realms/nfu/protocol/cas/login?service=https://ulearn.nfu.edu.tw/login"
+            class="quick-link" target="_blank">
             <img src="gallery/ulearn.png" alt="ulearn" width="221px" height="63px">
-            <div >
+            <div>
               ulearn
             </div>
           </a>
         </div>
-        
+
         <div class="links-center">
           <a href="https://www.nfu.edu.tw/zh" class="quick-link" target="_blank">
             <img src="gallery/NFU.png" alt="NFU" width="195px" height="30px">
-            <div >
+            <div>
               學校首頁
             </div>
           </a>
         </div>
-        
+
         <div class="links-center">
           <a href="https://autoweb.nfu.edu.tw" class="quick-link" target="_blank">
             <img src="gallery/auto.png" alt="auto" width="288px" height="33px">
-            <div >
+            <div>
               自動化系首頁
             </div>
           </a>
         </div>
       </section>
     </section>
-    
+
     <!--對話框-->
     <section id="chat-section" class="page-section">
       <div class="chat-container">
@@ -163,15 +181,16 @@
   </main>
   <!--暗/亮模式切換-->
   <div class="theme-switch-wrapper">
-  <label class="theme-switch" for="checkbox">
-    <input type="checkbox" id="checkbox"/>
-    <span class="slider round">
-      <img src="gallery/sun-svgrepo-com.svg" id="theme-icon-sun" class="theme-icon sun">
-      <img src="gallery/moon-svgrepo-com.svg" id="theme-icon-moon" class="theme-icon moon">
-    </span>
-  </label>
+    <label class="theme-switch" for="checkbox">
+      <input type="checkbox" id="checkbox" />
+      <span class="slider round">
+        <img src="gallery/sun-svgrepo-com.svg" id="theme-icon-sun" class="theme-icon sun">
+        <img src="gallery/moon-svgrepo-com.svg" id="theme-icon-moon" class="theme-icon moon">
+      </span>
+    </label>
   </div>
-
+  
   <script src="js/script.js"></script>
 </body>
+
 </html>
